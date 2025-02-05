@@ -1,0 +1,24 @@
+# Byte-compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.env/
+
+# Data and logs
+data/
+logs/
+*.log
+
+# Configuration files
+config/config.json
+
+# Airflow-specific files
+airflow.db
+airflow.cfg
+
+# macOS
+.DS_Store
+.env
