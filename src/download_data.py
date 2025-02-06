@@ -6,8 +6,9 @@ load_dotenv()
 
 URL = os.getenv("DOWNLOAD_URL")
 
-def download_csv():
+def download_data():
     response = requests.get(URL)
+    os.makedirs("data",exist_ok=True)
     if response.status_code == 200:
         with open("./data/border_crossing_data.csv","wb") as file:
             file.write(response.content)
@@ -15,4 +16,4 @@ def download_csv():
     else:
         raise Exception("Failed to Download CSV File.")
 
-download_csv()
+download_data()
