@@ -13,6 +13,8 @@ def download_data():
 def data_preprocessing():
     os.system("python3 src/data_preprocessing.py")
 
+def upload_to_snowflake():
+    os.system("python3 src/upload_to_snowflake.py")
 
 default_args = {
     "owner": "venkat",
@@ -24,9 +26,9 @@ default_args = {
 
 # Define DAG
 dag = DAG(
-    "border_crossing_pipeline",
+    "retail_sales_pipeline",
     default_args=default_args,
-    description="Pipeline to download, process border crossing data",
+    description="Pipeline to download, process and upload retail sales data",
     schedule_interval="@daily",
 )
 
@@ -44,12 +46,12 @@ process_task = PythonOperator(
     dag=dag,
 )
 
-# # Task 3: Upload Data to Snowflake
-# upload_task = PythonOperator(
-#     task_id="upload_to_snowflake",
-#     python_callable=upload_to_snowflake,
-#     dag=dag,
-# )
+# Task 3: Upload Data to Snowflake
+upload_task = PythonOperator(
+    task_id="upload_to_snowflake",
+    python_callable=upload_to_snowflake,
+    dag=dag,
+)
 
 # # Task 4: Analyze Data with DeepSeek
 # analyze_task = PythonOperator(
@@ -59,4 +61,4 @@ process_task = PythonOperator(
 # )
 
 # Define task dependencies
-download_task >> process_task #>> upload_task >> analyze_task
+download_task >> process_task >> upload_task #>> analyze_task

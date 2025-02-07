@@ -2,52 +2,53 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
 def data_preprocessing():
-    spark = SparkSession.builder.appName("BorderCrossingPreprocessing").getOrCreate()
+    spark = SparkSession.builder.appName("RetailSalesPreprocessing").getOrCreate()
 
-    #reas csv
-    df = spark.read.option("header", "true").csv("./data/border_crossing_data.csv")
+    df = spark.read.option("header", "true") \
+                   .option("multiLine", "true") \
+                   .option("quote", '"') \
+                   .option("escape", '"') \
+                   .option("delimiter", ",") \
+                   .csv("./data/raw")
 
-    #convert date format
-    df = df.withColumn("Date", to_date(col("Date"), "MMM yyyy"))
-
-    #adding new columns
-    df = df.withColumn("Month", month(col("Date"))) \
-        .withColumn("Year", year(col("Date")))
-
-    #drop na
+    #droping na
     df = df.dropna()
 
-    #change to lowercase and trim white spaces
-    df = df.withColumn("Port Name", trim(lower(col("Port Name")))) \
-        .withColumn("State", trim(lower(col("State")))) \
-        .withColumn("Border", trim(lower(col("Border")))) \
-        .withColumn("Measure", trim(lower(col("Measure"))))
+    #change text to lowercase
+    df = df.withColumn("ITEM DESCRIPTION", col("ITEM DESCRIPTION").cast(StringType())) \
+        .withColumn("SUPPLIER", trim(lower(col("SUPPLIER")))) \
+        .withColumn("ITEM CODE", trim(lower(col("ITEM CODE")))) \
+        .withColumn("ITEM DESCRIPTION", trim(lower(col("ITEM DESCRIPTION")))) \
+        .withColumn("ITEM TYPE", trim(lower(col("ITEM TYPE"))))
+        
 
-    #remove Point,Date as i dont need it
-    df = df.drop("Point")
-    df = df.drop("Date")
-
-    #check datatypes
-    df = df.withColumn("Value", col("Value").cast("int")) \
-        .withColumn("Latitude", col("Latitude").cast("double")) \
-        .withColumn("Longitude", col("Longitude").cast("double")) \
-        .withColumn("Port Code", col("Port Code").cast("int"))
+    #correct data types
+    df = df.withColumn("YEAR", col("YEAR").cast("int")) \
+        .withColumn("MONTH", col("MONTH").cast("int")) \
+        .withColumn("RETAIL SALES", col("RETAIL SALES").cast("double")) \
+        .withColumn("RETAIL TRANSFERS", col("RETAIL TRANSFERS").cast("double")) \
+        .withColumn("WAREHOUSE SALES", col("WAREHOUSE SALES").cast("double"))
 
     #renaming columns
-    df = df.withColumnRenamed("Port Name", "port_name") \
-        .withColumnRenamed("State","state") \
-        .withColumnRenamed("Port Code", "port_code") \
-        .withColumnRenamed("Border","border") \
-        .withColumnRenamed("Month","month") \
-        .withColumnRenamed("Year","year") \
-        .withColumnRenamed("Measure","type_of_transport") \
-        .withColumnRenamed("Value","value") \
-        .withColumnRenamed("Latitude","latitude") \
-        .withColumnRenamed("Longitude","longitude")
+    df = df.withColumnRenamed("YEAR", "year") \
+        .withColumnRenamed("MONTH", "month") \
+        .withColumnRenamed("SUPPLIER", "supplier") \
+        .withColumnRenamed("ITEM CODE", "item_code") \
+        .withColumnRenamed("ITEM DESCRIPTION", "item_description") \
+        .withColumnRenamed("ITEM TYPE", "item_type") \
+        .withColumnRenamed("RETAIL SALES", "retail_sales") \
+        .withColumnRenamed("RETAIL TRANSFERS", "retail_transfers") \
+        .withColumnRenamed("WAREHOUSE SALES", "warehouse_sales")
 
-    #writing to csv
+    #add date column
+    df = df.withColumn("month", format_string("%02d", col("month")))
+    df = df.withColumn("date", to_date(concat_ws("-", col("year"), col("month"), lit("01")), "yyyy-MM-dd"))
+
+    #writing to new csv file
     df.repartition(1).write.option("header", "true") \
+        .option("quoteAll", "true") \
+        .option("escape", '"') \
         .mode("overwrite") \
-        .csv("./data/processed_border_crossing_data.csv")
-    
+        .csv("./data/processed_retail_sales_data")
+
 data_preprocessing()

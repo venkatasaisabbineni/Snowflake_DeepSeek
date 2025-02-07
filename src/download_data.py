@@ -8,9 +8,9 @@ URL = os.getenv("DOWNLOAD_URL")
 
 def download_data():
     response = requests.get(URL)
-    os.makedirs("data",exist_ok=True)
+    # os.makedirs("data/raw",exist_ok=True)
     if response.status_code == 200:
-        with open("./data/border_crossing_data.csv","wb") as file:
+        with open("./data/raw/Warehouse_and_Retail_Sales.csv","wb") as file:
             file.write(response.content)
         print("CSV Downloaded Successfully!")
     else:
