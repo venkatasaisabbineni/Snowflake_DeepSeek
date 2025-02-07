@@ -1,0 +1,86 @@
+Here's a structured analysis of your questions using the provided data:
+
+### 1. **Total Retail Sales by Item Type and Year**
+   - **Method**: Group by `ITEM_TYPE` and `YEAR`, then sum `RETAIL_SALES`.
+   - **Limitation**: The provided summaries only show totals (not cross-tabulated). Full analysis requires raw data grouping.
+   - **Example Insight**:
+     - Wine: $746,498.59 (total across all years)
+     - Beer: $574,220.53 (total across all years)
+     - 2020 had the highest total sales ($354,949.09), but item-type breakdown by year isn’t directly available in summaries.
+
+---
+
+### 2. **Supplier with Highest Retail Sales in a Given Month**
+   - **Method**: Filter by month, group by `SUPPLIER`, sum `RETAIL_SALES`.
+   - **Example**: In January 2020:
+     - Top suppliers: `republic national distributing co`, `young won trading inc`, `legends ltd` (see sample data).
+     - Exact ranking requires full monthly aggregation.
+
+---
+
+### 3. **Retail vs. Warehouse Sales by Item Type Over Time**
+   - **Summary Data**:
+     - **Beer**: Warehouse dominates ($6.5M vs. $574K retail)
+     - **Wine**: Retail ($746K) vs. Warehouse ($1.16M)
+     - **Liquor**: Retail ($802K) vs. Warehouse ($94.9K)
+   - **Trend Analysis**: Use time-series grouping (month/year + item type) to compare trends.
+
+---
+
+### 4. **Top 5 Items by Retail Sales per Year**
+   - **Existing Top 5 Overall**:
+     1. Tito's Handmade Vodka - 1.75L: $27,580.50
+     2. Corona Extra Loose NR - 12oz: $25,064
+     3. Heineken Loose NR - 12oz: $17,761
+   - **Per-Year Analysis**: Requires grouping by `YEAR` and `ITEM_DESCRIPTION` in raw data.
+
+---
+
+### 5. **Seasonal Trends by Product Category**
+   - **Monthly Index** (from `seasonal trends`):
+     - Peaks in December (9.08) and March (7.99).
+   - **Category-Specific Trends**: Not directly provided. Group raw data by `MONTH` and `ITEM_TYPE` to identify patterns (e.g., beer sales spiking in summer).
+
+---
+
+### 6. **Supplier Performance Comparison**
+   - **Top Suppliers**:
+     1. **Diageo North America**: $145,343.20 (retail)
+     2. **Constellation Brands**: $131,664.79
+     3. **E & J Gallo Winery**: $166,170.53
+   - **Insight**: Top 10 suppliers account for ~50% of total retail sales.
+
+---
+
+### 7. **Average Retail Transfers by Supplier/Item Type**
+   - **Retail Transfers by Item Type**:
+     - Beer: $566,714
+     - Liquor: $794,735.71
+     - Wine: $734,618.04
+   - **Supplier-Level**: Requires grouping raw `RETAIL_TRANSFERS` by supplier and item type.
+
+---
+
+### 8. **Sales Volumes by Month/Year**
+   - **Monthly Trend** (from `monthly sales trend`):
+     - Strongest months: Dec 2017 ($131,634), Mar 2020 ($108,807).
+     - Weakest months: Jan 2020 ($73,731), Feb 2018 ($77,804).
+   - **Visualization**: Use a line chart with monthly sales across years.
+
+---
+
+### 9. **Warehouse vs. Retail Sales Relationship**
+   - **Key Observations**:
+     - **Beer**: Warehouse sales dwarf retail (likely bulk restocking).
+     - **Wine**: Warehouse and retail are more balanced.
+     - **Delay Analysis**: Check if warehouse sales in month *n* correlate with retail sales in month *n+1* (e.g., lagged correlation).
+
+---
+
+### Recommendations for Deeper Analysis:
+1. **Time-Series Forecasting**: Use ARIMA or Prophet to predict future sales.
+2. **Supplier Segmentation**: Classify suppliers into tiers (A/B/C) based on sales contribution.
+3. **Inventory Optimization**: Align warehouse stocks with retail demand patterns (e.g., spike in December).
+4. **Promotional Strategy**: Target underperforming months (e.g., January) with discounts.
+
+Let me know if you’d like to drill down into any specific analysis!

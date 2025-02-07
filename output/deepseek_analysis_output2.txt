@@ -1,0 +1,55 @@
+**1. Which supplier sells the most units by retail sales?**  
+**Answer**: **E & J Gallo Winery** has the highest retail sales at **$166,170.53**.
+
+---
+
+**2. What is the percentage of total sales contributed by each supplier?**  
+**Method**:  
+- Total retail sales = **$2,153,459.39** (sum of all retail sales across item types or years).  
+- For each supplier, calculate:  
+  \[
+  \text{Percentage} = \left(\frac{\text{Supplier Retail Sales}}{\text{Total Retail Sales}}\right) \times 100
+  \]  
+
+**Top Contributors**:  
+- **E & J Gallo Winery**: ~7.72%  
+- **Diageo North America Inc**: ~6.75%  
+- **Constellation Brands**: ~6.11%  
+- **Anheuser Busch Inc**: ~5.11%  
+- **The Wine Group**: ~2.98%  
+
+*(Full percentages require iterating through all suppliers, but these are the top performers.)*
+
+---
+
+**3. Which suppliers are consistently transferring products to the warehouse, even if their retail sales are low?**  
+**Key Suppliers**:  
+- **Nexterra Wine Company**: $0 retail sales vs. **$6,700.67** warehouse sales.  
+- **Interbalt Products Corp**: $577.20 retail vs. **$6,953.06** warehouse.  
+- **Punto Vino LLC**: $469.86 retail vs. **$12,714.77** warehouse.  
+- **Tri-Vin Imports**: $3,253.81 retail vs. **$8,967.74** warehouse.  
+- **Miller Brewing Company**: $87,156.44 retail vs. **$1,425,428.71** warehouse (high absolute warehouse sales).  
+
+These suppliers prioritize warehouse distribution over direct retail.
+
+---
+
+**4. How do suppliers perform in different months and years? Are there any trends in their sales patterns?**  
+**Insights**:  
+- **Overall Seasonal Trend**: Retail sales peak in **December** (9.08 seasonal multiplier) and dip in January (5.98).  
+- **Yearly Performance**:  
+  - **2019** had the highest retail sales ($958,179.83), likely due to strong performance from top suppliers like E & J Gallo Winery.  
+  - **2020** saw reduced sales ($354,949.09), potentially due to external factors like the pandemic.  
+- **Supplier-Specific Trends**:  
+  - The provided data lacks supplier-month-year breakdowns, but large suppliers like **Anheuser Busch Inc** and **Miller Brewing Company** likely follow seasonal beer sales trends (higher in summer).  
+  - Wine suppliers (e.g., **E & J Gallo**) may peak during holidays (November/December).  
+
+**Limitation**: Supplier-specific monthly/yearly trends cannot be quantified without granular data.  
+
+---
+
+**Summary**:  
+- **Top Retail Supplier**: E & J Gallo Winery.  
+- **Warehouse Focus**: Suppliers like Nexterra Wine Company and Miller Brewing Company.  
+- **Seasonality**: December is critical for retail sales across all suppliers.  
+- **Data Gap**: Supplier-specific monthly/yearly trends require deeper analysis of raw data.

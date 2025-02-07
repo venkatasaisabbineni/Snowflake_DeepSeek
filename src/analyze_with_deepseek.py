@@ -15,7 +15,7 @@ SNOWFLAKE_WAREHOUSE = os.getenv("SNOWFLAKE_WAREHOUSE")
 SNOWFLAKE_DATABASE = os.getenv("SNOWFLAKE_DATABASE")
 SNOWFLAKE_SCHEMA = os.getenv("SNOWFLAKE_SCHEMA")
 SNOWFLAKE_ROLE = os.getenv("SNOWFLAKE_ROLE")
-DEEPSEEK_API_KEY1 = os.getenv("DEEPSEEK_API_KEY1")
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 
 
 def analyze_with_deepseek():
@@ -71,12 +71,15 @@ def analyze_with_deepseek():
 
     Here is a sample of the raw data for context:
     {data_sample}
-
-    Can you provide insights, trends, anomalies, or interesting patterns based on this data?
+    Can you answer the following questions:
+    Which supplier sells the most units by retail sales?
+    What is the percentage of total sales contributed by each supplier?
+    Which suppliers are consistently transferring products to the warehouse, even if their retail sales are low?
+    How do suppliers perform in different months and years? Are there any trends in their sales patterns?
     """
 
     # Call Deepseek API
-    client = OpenAI(api_key=DEEPSEEK_API_KEY1, base_url="https://api.deepseek.com")
+    client = OpenAI(api_key=DEEPSEEK_API_KEY, base_url="https://api.deepseek.com")
 
     messages = [{"role": "user", "content": prompt}]
     try:
@@ -86,7 +89,7 @@ def analyze_with_deepseek():
         )
         print("API Response:", response)
         print("Generated Content:", response.choices[0].message.content)
-        output_file_path = "./data/deepseek_analysis_output.txt"
+        output_file_path = "./output/deepseek_analysis_output2.txt"
         with open(output_file_path, "w") as f:
             f.write(response.choices[0].message.content)
         print(f"Analysis results saved to {output_file_path}")

@@ -1,0 +1,69 @@
+### Insights, Trends, Anomalies, and Patterns
+
+#### 1. **Sales by Item Type**
+   - **Liquor** ($802,691) and **wine** ($746,499) dominate retail sales, followed by **beer** ($574,221).  
+   - **Non-alcohol** ($27,150) and **str_supplies** ($2,235) are minor contributors.  
+   - **Kegs** and **dunnage** show negligible/zero retail sales, likely due to their operational use (e.g., kegs for bulk distribution, dunnage for packaging).  
+
+---
+
+#### 2. **Annual Sales Trends**
+   - **2019** ($958,180) is the strongest year, likely due to complete monthly data (Jan–Dec).  
+   - **2018** ($153,596) and **2020** ($354,949) have incomplete data (only 2–4 months), making direct comparisons unreliable.  
+   - **Seasonality**: December consistently peaks (e.g., $131,634 in Dec 2017), likely driven by holidays.  
+
+---
+
+#### 3. **Top-Performing Items**
+   - **Premium spirits** dominate:  
+     - *Tito’s Handmade Vodka* ($27,581) leads, followed by *Corona Extra* ($25,064) and *Heineken* ($17,761).  
+   - **Bulk packaging** (e.g., 1.75L bottles, 30-packs) suggests consumer preference for larger purchases.  
+
+---
+
+#### 4. **Warehouse vs. Retail Sales**
+   - **Beer** is heavily warehouse-driven ($6.5M warehouse vs. $574K retail), indicating bulk distribution to retailers/restaurants.  
+   - **Liquor** skews toward retail ($802K retail vs. $94K warehouse), likely due to direct consumer purchases.  
+   - **Wine** balances both channels ($746K retail vs. $1.15M warehouse).  
+
+---
+
+#### 5. **Supplier Performance**
+   - **Top Retail Suppliers**:  
+     - *E & J Gallo Winery* ($166,171) and *Diageo North America* ($145,343) lead.  
+     - *Constellation Brands* ($131,665) and *Anheuser Busch* ($109,961) are key for beer.  
+   - **Warehouse Giants**:  
+     - *Crown Imports* ($1.65M) and *Miller Brewing* ($1.42M) dominate bulk beer distribution.  
+   - **Anomalies**:  
+     - *Premium Distributors Inc* shows negative warehouse sales (-$53,782), likely a data entry error or return.  
+
+---
+
+#### 6. **Anomalies and Data Gaps**
+   - **Negative Transfers**:  
+     - *Kegs* (-1.0) and *Premium Distributors Inc* (-$53,782) suggest returns or corrections.  
+   - **Incomplete Data**:  
+     - 2018 and 2020 lack full-year data, skewing annual comparisons.  
+   - **Low-Volume Suppliers**:  
+     - Many suppliers (e.g., *Black Ankle Vineyards*) have minimal sales, indicating niche markets or data gaps.  
+
+---
+
+#### 7. **Seasonality**
+   - **Peaks**: December (holidays) and summer months (July–August).  
+   - **Troughs**: January–February (post-holiday lull).  
+
+---
+
+#### 8. **Strategic Observations**
+   - **Focus on Liquor/Wine**: These categories drive retail revenue and could benefit from promotions.  
+   - **Warehouse Optimization**: Beer’s bulk sales highlight the need for efficient warehouse management.  
+   - **Data Quality**: Address gaps (e.g., missing months) and anomalies (negative values) for accurate analysis.  
+
+---
+
+### Recommendations
+1. **Leverage Seasonal Peaks**: Boost marketing for liquor/wine during holidays and beer in summer.  
+2. **Audit Suppliers**: Investigate low-performing suppliers and anomalies like negative sales.  
+3. **Expand Non-Alcohol Offerings**: Low sales here suggest untapped potential in this category.  
+4. **Improve Data Completeness**: Ensure full-year data collection for accurate trend analysis.
