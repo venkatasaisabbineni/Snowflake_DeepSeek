@@ -16,12 +16,15 @@ def data_preprocessing():
 def upload_to_snowflake():
     os.system("python3 src/upload_to_snowflake.py")
 
+def analyze_with_deepseek():
+    os.system("python3 src/analyze_with_deepseek.py")
+
 default_args = {
     "owner": "venkat",
     "depends_on_past": False,
     "start_date": datetime(2025, 2, 5),
     "retries": 1,
-    "retry_delay": timedelta(minutes=5),
+    "retry_delay": timedelta(minutes=10),
 }
 
 # Define DAG
@@ -53,12 +56,12 @@ upload_task = PythonOperator(
     dag=dag,
 )
 
-# # Task 4: Analyze Data with DeepSeek
-# analyze_task = PythonOperator(
-#     task_id="analyze_with_deepseek",
-#     python_callable=analyze_with_deepseek,
-#     dag=dag,
-# )
+# Task 4: Analyze Data with DeepSeek
+analyze_task = PythonOperator(
+    task_id="analyze_with_deepseek",
+    python_callable=analyze_with_deepseek,
+    dag=dag,
+)
 
 # Define task dependencies
-download_task >> process_task >> upload_task #>> analyze_task
+download_task >> process_task >> upload_task >> analyze_task

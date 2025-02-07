@@ -1,0 +1,83 @@
+DATASET : WAREHOUSE AND RETAIL SALES DATA
+
+COLUMNS(AFTER PREPROCESSING) : ['YEAR', 'MONTH', 'SUPPLIER', 'ITEM_CODE', 'ITEM_DESCRIPTION', 'ITEM_TYPE', 'RETAIL_SALES', 'RETAIL_TRANSFERS', 'WAREHOUSE_SALES', 'DATE']
+
+### Insights and Trends from the Dataset:
+
+---
+
+#### **1. Sales by Product Category**
+- **Wine** ($746,498.59) and **liquor** ($802,691.43) dominate retail sales, together accounting for **~83% of total retail sales**.  
+- **Beer** ($574,220.53) is the third-largest category but shows a massive **warehouse sales volume** ($6.5M), suggesting it’s primarily sold in bulk or wholesale channels.  
+- **Non-alcohol** ($27,150.31) and **str_supplies** (e.g., wine totes, $2,234.90) are niche categories with minimal sales.  
+- **Kegs** and **dunnage** have near-zero retail sales, likely due to specialized use (e.g., wholesale/restaurant sales or internal logistics).
+
+---
+
+#### **2. Yearly Sales Trends**
+- **2019 was the peak year** ($958,179.83), nearly **6x higher than 2018** ($153,595.90).  
+- **2020 sales** ($354,949.09) are incomplete (data only for Jan, Mar, Jul, Sep), but March 2020 saw a spike ($108,807.63), possibly due to pandemic stockpiling.  
+- **2017** ($686,734.57) and **2018** had partial data, suggesting gaps in reporting or operational changes.
+
+---
+
+#### **3. Top-Performing Items**
+- **Top 5 Retail Items** are all liquor/beer:  
+  1. **Tito’s Handmade Vodka - 1.75L** ($27,580.50)  
+  2. **Corona Extra** ($25,064.00)  
+  3. **Heineken** ($17,761.00)  
+  *Large bottle sizes dominate, likely for home consumption.*  
+- **Wine** lacks representation in top items, suggesting fragmented sales across many SKUs.
+
+---
+
+#### **4. Monthly Trends and Seasonality**
+- **December** consistently peaks (e.g., $131,634 in Dec 2017), likely due to holidays.  
+- **March** shows strong sales (e.g., $108,807 in Mar 2020), possibly tied to St. Patrick’s Day or spring breaks.  
+- **Summer months** (June–Aug) see steady sales, aligning with outdoor events and barbecues.
+
+---
+
+#### **5. Supplier Performance**
+- **Top Retail Suppliers**:  
+  - **E & J Gallo Winery** ($166,170.53)  
+  - **Diageo North America** ($145,343.20)  
+  - **Constellation Brands** ($131,664.79)  
+- **Top Warehouse Suppliers**:  
+  - **Crown Imports** ($1.65M, likely beer brands like Corona)  
+  - **Miller Brewing** ($1.42M)  
+  - **Anheuser Busch** ($1.33M)  
+- **Anomalies**:  
+  - **Premium Distributors Inc** has **negative warehouse sales** (-$53,782), indicating potential returns or data errors.  
+  - **Default** supplier (e.g., wine totes) has $2,899 in retail sales, likely a placeholder for unbranded items.
+
+---
+
+#### **6. Retail vs. Warehouse Sales**
+- **Beer** is heavily warehouse-driven ($6.5M warehouse vs. $574K retail).  
+- **Liquor** and **wine** skew toward retail, suggesting consumer-focused sales.  
+- **Non-alcohol** and **str_supplies** are almost entirely retail.
+
+---
+
+#### **7. Retail Transfers**
+- **Beer** ($566,714) and **wine** ($734,618) have high transfer volumes, indicating frequent stock movements between locations.  
+- **Kegs** show a negative transfer (-1.0), likely a correction or return.
+
+---
+
+#### **8. Anomalies and Data Gaps**
+- **Incomplete 2020 data** (only 4 months) skews yearly comparisons.  
+- Negative values (e.g., warehouse sales for **Robert Kacher Selections LLC** at -1.0) suggest data entry errors.  
+- **"Dunnage"** (packaging material) has $0 retail sales but -$121,307 warehouse sales, implying internal use or write-offs.
+
+---
+
+### Recommendations:
+1. **Investigate data gaps** (e.g., missing 2018/2020 months) for completeness.  
+2. **Audit negative transfers/warehouse sales** to resolve data quality issues.  
+3. **Optimize inventory** for peak seasons (Dec/Mar) and high-performing categories (wine/liquor).  
+4. **Leverage warehouse-heavy suppliers** (e.g., Crown Imports) for bulk discounts.  
+5. Explore why **non-alcohol** and **str_supplies** underperform despite retail focus.  
+
+Let me know if you’d like deeper analysis on specific areas!

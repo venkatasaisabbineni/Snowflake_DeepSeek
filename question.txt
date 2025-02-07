@@ -1,0 +1,44 @@
+Business and Sales Insights:
+
+What is the total retail sales for each item type (e.g., wine, beer, liquor) across different years?
+Which supplier has the highest retail sales in a given month?
+How do retail sales and warehouse sales for each item type (e.g., wine, beer, liquor) compare over time?
+What are the top 5 most sold items by total retail sales for each year?
+What is the seasonal trend in retail sales for each product category (wine, beer, liquor)?
+How do retail sales differ between different suppliers?
+What is the average retail transfer for each supplier and item type?
+How do sales volumes (retail and warehouse) vary across different months and years?
+What is the relationship between warehouse sales and retail sales? Do they tend to increase simultaneously, or is there a delay?
+
+Temporal Insights:
+
+What are the trends in retail sales across different years and months?
+What is the month-on-month or year-on-year growth rate of retail sales for each item?
+Which month tends to have the highest retail sales for most products?
+Are there any seasonal patterns in the sales of different product types? (e.g., wine, beer, liquor)
+
+Item and Product-Centric Insights:
+
+What is the average retail sales volume for each item description?
+Which item code (product) has the highest retail sales across all suppliers?
+Which item descriptions have the highest retail transfers?
+Which items have the highest discrepancy between retail sales and warehouse sales?
+What are the most common item types (wine, beer, liquor) in the dataset?
+
+Supplier-Centric Insights:
+
+Which supplier sells the most units by retail sales?
+What is the percentage of total sales contributed by each supplier?
+Which suppliers are consistently transferring products to the warehouse, even if their retail sales are low?
+How do suppliers perform in different months and years? Are there any trends in their sales patterns?
+
+Temporal-Item Interactions:
+
+For each item, how do retail sales vary with respect to the time of year?
+Is there a correlation between the retail transfers and warehouse sales for specific items over time?
+Which items see a significant increase in warehouse sales after a certain retail sales threshold is crossed?
+
+Descriptive Statistics & Aggregations:
+
+What are the aggregate retail sales, warehouse sales, and retail transfers for each year?
+What is the distribution of retail sales for different item types across different suppliers?
